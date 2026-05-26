@@ -1,0 +1,7 @@
+-- Liste estudantes cujo nome começa com “M”
+-- Liste os 5 estudantes mais velhos
+-- Conte quantos estudantes existem por gênero
+-- Mostre apenas os gêneros com mais de 20 estudantes
+-- Liste nomes em maiúsculo
+-- Mostre idade dos estudantes
+-- Liste nacionalidades distintas

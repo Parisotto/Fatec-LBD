@@ -4,7 +4,7 @@ FROM estudantes;
 SELECT UPPER(nome) AS nome_maiusculo
 FROM estudantes;
 
-SELECT LENGTH(nome) AS tamanho_nome
+SELECT UPPER(nome) as Nome, LENGTH(nome) AS tamanho_nome
 FROM estudantes;
 
 SELECT nome, YEAR(data_nascimento) AS ano

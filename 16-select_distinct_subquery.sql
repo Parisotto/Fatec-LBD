@@ -1,4 +1,4 @@
-SELECT DISTINCT genero
+SELECT DISTINCT nacionalidade
 FROM estudantes;
 
 SELECT nome
