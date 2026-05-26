@@ -28,6 +28,7 @@ Repositório com os arquivos SQL das aulas apresentados em sala.
 - [Aula 15 — SELECT com ALIAS](15-select_alias.sql)
 - [Aula 16 — SELECT com DISTINCT e SUBQUER](16-select_distinct_subquery.sql)
 - [Aula 17 — Exercícios com SELECT](17-select_exercicios.sql)
+- [Aula 18 — MODIFY campo nacionalidade](17-select_exercicios.sql)
 
 ---
 
