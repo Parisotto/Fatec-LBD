@@ -1,16 +1,17 @@
+-- 21-join.sql
 SELECT nome, nacionalidade FROM estudantes;
 
-SELECT e.nome, e.nacionalidade AS Sigla, n.pais, n.gentilico AS Nacionalidade
-FROM estudantes AS e INNER JOIN nacionalidade AS n
-ON e.nacionalidade = n.sigla
+SELECT e.nome, e.nacionalidade AS Sigla, p.pais, p.gentilico AS Nacionalidade
+FROM estudantes AS e INNER JOIN paises AS p
+ON e.nacionalidade = p.sigla
 ORDER BY e.nome;
 
-SELECT e.nome, e.nacionalidade AS Sigla, n.pais, n.gentilico AS Nacionalidade
-FROM estudantes AS e LEFT OUTER JOIN nacionalidade AS n
-ON e.nacionalidade = n.sigla
+SELECT e.nome, e.nacionalidade AS Sigla, p.pais, p.gentilico AS Nacionalidade
+FROM estudantes AS e LEFT OUTER JOIN paises AS p
+ON e.nacionalidade = p.sigla
 ORDER BY e.nome;
 
-SELECT e.nome, e.nacionalidade AS Sigla, n.pais, n.gentilico AS Nacionalidade
-FROM estudantes AS e RIGHT OUTER JOIN nacionalidade AS n
-ON e.nacionalidade = n.sigla
+SELECT e.nome, e.nacionalidade AS Sigla, p.pais, p.gentilico AS Nacionalidade
+FROM estudantes AS e RIGHT OUTER JOIN paises AS p
+ON e.nacionalidade = p.sigla
 ORDER BY e.nome;

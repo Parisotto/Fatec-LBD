@@ -1,0 +1,12 @@
+-- 24-exercicio-inner-join.sql
+-- Crie uma tabela faculdades
+-- Campos: id, nome, municipio
+-- Crie um relacionamento entre a tabela faculdades e cursos
+-- Um curso pode ser dado em várias faculdades
+-- Uma faculdade pode conter vários cursos
+-- Elabore uma consulta JOIN que retorne a relação de cada
+-- faculdade com seus cursos. A consulta deverá conter
+-- apenas o nome da faculdade e o nome do curso
+-- EXEMPLO:
+-- Fatec Zona Sul | Análise e Desenvolvimento de Sistemas
+-- Fatec São Paulo| Desenvolvimento de Software Multiplataforma
