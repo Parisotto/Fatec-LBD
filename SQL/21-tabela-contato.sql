@@ -9,7 +9,7 @@
 	-- aplique o descritor
     
 CREATE TABLE contato ( 
-	idContato int primary key auto_increment,
+    idContato int primary key auto_increment,
     email_principal varchar(30) unique not null,
     email_alternativo varchar(30) unique not null,
     celular varchar(14) not null,

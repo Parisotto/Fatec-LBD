@@ -9,7 +9,7 @@
     
 -- create table paises ( id int ) engine InnoDB;
 CREATE TABLE paises (
-	sigla char(3) primary key,
+    sigla char(3) primary key,
     pais varchar(30) unique not null,
     gentilico varchar(30) unique not null
 ) ENGINE InnoDB;
