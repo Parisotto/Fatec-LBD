@@ -27,7 +27,7 @@ CREATE TABLE professores_disciplinas (
 	ano YEAR NOT NULL,
     semestre TINYINT NOT NULL DEFAULT 1,
     
-    PRIMARY KEY (id_professor, id_disciplina, ano, disciplina),
+    PRIMARY KEY (id_professor, id_disciplina, ano, semestre),
     FOREIGN KEY (id_professor) REFERENCES professores(id),
     FOREIGN KEY (id_disciplina) REFERENCES disciplinas(id),
     
