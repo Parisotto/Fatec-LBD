@@ -43,13 +43,6 @@ FROM Livro l
 INNER JOIN Livro_Autor la
     ON l.codigo = la.cod_livro
 INNER JOIN Autor a
-    ON la.cod_autor = a.codigo;SELECT
-    l.titulo AS Livro,
-    a.nome AS Autor
-FROM Livro l
-INNER JOIN Livro_Autor la
-    ON l.codigo = la.cod_livro
-INNER JOIN Autor a
     ON la.cod_autor = a.codigo;
     
 # Exercício 3 – Listar empréstimos com nomes dos usuários e títulos dos livros
