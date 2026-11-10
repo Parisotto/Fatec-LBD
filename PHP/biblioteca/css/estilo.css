@@ -1,0 +1,196 @@
+:root {
+  font-family:
+    Inter,
+    Segoe UI,
+    Arial,
+    sans-serif;
+  color: #172033;
+  background: #f2f5fa;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 920px;
+  margin: 40px auto;
+  padding: 0 22px;
+}
+
+header {
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0.15em 0;
+  color: #14284b;
+}
+
+header p {
+  color: #59677d;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #2867c9;
+}
+
+.warning {
+  border: 1px solid #e5b34a;
+  border-left: 6px solid #df9c16;
+  border-radius: 8px;
+  background: #fff7df;
+  padding: 16px 18px;
+  margin: 22px 0;
+  line-height: 1.55;
+  color: #644810;
+}
+
+form,
+.result {
+  background: #fff;
+  border: 1px solid #dce3ed;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 5px 20px #19345b0a;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #bbc7d8;
+  border-radius: 8px;
+  padding: 14px;
+  font:
+    15px/1.5 Consolas,
+    monospace;
+  color: #14284b;
+  background: #fbfcfe;
+}
+textarea:focus {
+  outline: 3px solid #8bb7ff66;
+  border-color: #3677d5;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: #58677e;
+  margin: 10px 0 16px;
+}
+
+button,
+a {
+  border: 0;
+  border-radius: 8px;
+  background: #1d5fbe;
+  color: #fff;
+  padding: 12px 19px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover,
+a:hover {
+  background: #164a94;
+}
+
+a {
+  text-decoration: none;
+}
+
+.result {
+  margin-top: 22px;
+}
+
+.result h2 {
+  margin-top: 0;
+}
+
+.error {
+  border-color: #e6aaaa;
+  background: #fff7f7;
+  color: #8b2020;
+}
+
+.error pre {
+  white-space: pre-wrap;
+  font:
+    14px/1.5 Consolas,
+    monospace;
+}
+
+.success {
+  border-color: #a6d9b4;
+  background: #f3fff6;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.93rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e7ef;
+}
+
+th {
+  background: #eff4fb;
+  color: #233e67;
+}
+
+td {
+  overflow-wrap: anywhere;
+}
+
+footer {
+  color: #718096;
+  text-align: center;
+  padding: 28px 0 10px;
+  font-size: 0.9rem;
+}
+
+code {
+  background: #e9eef5;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 22px auto;
+    padding: 0 14px;
+  }
+  form,
+  .result {
+    padding: 16px;
+  }
+  th,
+  td {
+    padding: 8px;
+  }
+}

@@ -70,20 +70,20 @@ function identifier(string $name, array $allowed): string
     return '`' . str_replace('`', '``', $name) . '`';
 }
 
-// TODO 1 — SELECT/listagem: escreva aqui o SQL SELECT para a tabela allowlisted.
 function listRows(PDO $pdo, string $table, array $config): array
 {
     $safeTable = identifier($table, array_keys($config));
     $columns = array_keys($config[$table]['fields']);
     $safeColumns = array_map(fn($c) => identifier($c, $columns), $columns);
 
-    // TODO: substitua a linha abaixo pelo SQL SELECT real. Identificadores vêm apenas da allowlist.
-    $sql = '/* TODO: SELECT ' . implode(', ', $safeColumns) . ' FROM ' . $safeTable . ' ORDER BY ... */';
+    $safePrimaryKey = array_map(fn($c) => identifier($c, $columns), $config[$table]['pk']);
+    $sql = 'SELECT ' . implode(', ', $safeColumns)
+        . ' FROM ' . $safeTable
+        . ' ORDER BY ' . implode(', ', $safePrimaryKey);
 
     return $pdo->query($sql)->fetchAll();
 }
 
-// TODO 2 — INSERT: escreva aqui o SQL INSERT e mantenha os valores parametrizados.
 function insertRow(PDO $pdo, string $table, array $data, array $config): void
 {
     $fields = array_keys($config[$table]['fields']);
@@ -92,15 +92,13 @@ function insertRow(PDO $pdo, string $table, array $data, array $config): void
     $safeColumns = array_map(fn($c) => identifier($c, $fields), $columns);
     $placeholders = array_map(fn($i) => ':v' . $i, array_keys($columns));
 
-    // TODO: substitua o comentário por INSERT INTO ... VALUES (...).
-    $sql = '/* TODO: INSERT INTO ' . $safeTable . ' (' . implode(', ', $safeColumns) . ') VALUES (' . implode(', ', $placeholders) . ') */';
+    $sql = 'INSERT INTO ' . $safeTable . ' (' . implode(', ', $safeColumns) . ') VALUES (' . implode(', ', $placeholders) . ')';
 
     $stmt = $pdo->prepare($sql);
     foreach ($columns as $i => $column) $stmt->bindValue(':v' . $i, $data[$column] === '' ? null : $data[$column]);
     $stmt->execute();
 }
 
-// TODO 3 — UPDATE: escreva aqui o SQL UPDATE com WHERE para todas as colunas da chave primária.
 function updateRow(PDO $pdo, string $table, array $data, array $key, array $config): void
 {
     $fields = array_keys($config[$table]['fields']);
@@ -112,8 +110,7 @@ function updateRow(PDO $pdo, string $table, array $data, array $key, array $conf
     $where = [];
     foreach ($pk as $i => $column) $where[] = identifier($column, $fields) . ' = :k' . $i;
 
-    // TODO: substitua o comentário por UPDATE ... SET ... WHERE ... (com placeholders).
-    $sql = '/* TODO: UPDATE ' . $safeTable . ' SET ' . implode(', ', $sets) . ' WHERE ' . implode(' AND ', $where) . ' */';
+    $sql = 'UPDATE ' . $safeTable . ' SET ' . implode(', ', $sets) . ' WHERE ' . implode(' AND ', $where);
 
     $stmt = $pdo->prepare($sql);
     foreach ($columns as $i => $column) $stmt->bindValue(':v' . $i, $data[$column] === '' ? null : $data[$column]);
@@ -121,7 +118,6 @@ function updateRow(PDO $pdo, string $table, array $data, array $key, array $conf
     $stmt->execute();
 }
 
-// TODO 4 — DELETE: escreva aqui o SQL DELETE com WHERE para todas as colunas da chave primária.
 function deleteRow(PDO $pdo, string $table, array $key, array $config): void
 {
     $fields = array_keys($config[$table]['fields']);
@@ -131,8 +127,7 @@ function deleteRow(PDO $pdo, string $table, array $key, array $config): void
     foreach ($pk as $i => $column) $where[] = identifier($column, $fields) . ' = :k' . $i;
 
 
-    // TODO: substitua o comentário por DELETE FROM ... WHERE ... (com placeholders).
-    $sql = '/* TODO: DELETE FROM ' . $safeTable . ' WHERE ' . implode(' AND ', $where) . ' */';
+    $sql = 'DELETE FROM ' . $safeTable . ' WHERE ' . implode(' AND ', $where);
 
     $stmt = $pdo->prepare($sql);
     foreach ($pk as $i => $column) $stmt->bindValue(':k' . $i, $key[$column]);
@@ -281,10 +276,26 @@ try {
                 font-size:.9rem;
                 color:#59636f
             }
+            a {
+                border: 0;
+                border-radius: 8px;
+                background: #1d5fbe;
+                color: #fff;
+                padding: 12px 19px;
+                font-weight: 700;
+                font-size: 1rem;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            a:hover {
+                background: #164a94;
+            }
         </style>
     </head>
     <body>
         <h1>Biblioteca Fatec ZS — CRUD</h1>
+        <br><a href="index.php">Ir para a Home</a><br>
         <p class="intro">Página de apoio didático. O fluxo PHP, formulários, validação básica e conexão PDO estão preparados; os alunos completam apenas os quatro comandos SQL indicados no arquivo.</p>
 
         <?php if ($notice): ?><p class="notice"><?=h($notice)?></p><?php endif; ?>
